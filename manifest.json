@@ -1,0 +1,41 @@
+{
+    "name": "RadioFeed",
+    "short_name": "RadioFeed",
+    "description": "Live stream verschillende radiostations",
+    "icons": [
+        {
+            "src": "RadioFeed-48.png",
+            "sizes": "48x48",
+            "type": "image/png"
+        },
+        {
+            "src": "RadioFeed-72.png",
+            "sizes": "72x72",
+            "type": "image/png"
+        },
+        {
+            "src": "RadioFeed-96.png",
+            "sizes": "96x96",
+            "type": "image/png"
+        },
+        {
+            "src": "RadioFeed-144.png",
+            "sizes": "144x144",
+            "type": "image/png"
+        },
+        {
+            "src": "RadioFeed-168.png",
+            "sizes": "168x168",
+            "type": "image/png"
+        },
+        {
+            "src": "RadioFeed-192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        }
+    ],
+    "start_url": "./index.html",
+    "display": "standalone",
+    "theme_color": "#FFFFFF",
+    "background_color": "#000000"
+}

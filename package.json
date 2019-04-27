@@ -1,0 +1,17 @@
+{
+  "name": "radio-feed",
+  "version": "0.1.0",
+  "description": "Tune in to various radio stations",
+  "scripts": {
+    "start": "serve --no-clipboard"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:Ex-iT/radio-feed.git"
+  },
+  "author": "Ex-iT",
+  "license": "ISC",
+  "devDependencies": {
+    "serve": "^11.0.0"
+  }
+}
