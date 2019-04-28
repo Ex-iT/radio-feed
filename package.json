@@ -1,17 +1,24 @@
 {
   "name": "radio-feed",
   "version": "0.1.0",
-  "description": "Tune in to various radio stations",
-  "scripts": {
-    "start": "serve --no-clipboard"
+  "description": "Tune in to various Dutch radio stations",
+  "author": "Ex-iT",
+  "license": "ISC",
+  "private": true,
+  "engines": {
+    "node": ">=8"
   },
+  "homepage": ".",
   "repository": {
     "type": "git",
     "url": "git@github.com:Ex-iT/radio-feed.git"
   },
-  "author": "Ex-iT",
-  "license": "ISC",
+  "scripts": {
+    "start": "serve --no-clipboard",
+    "build": "uglifyjs src/index.js --output src/index.min.js --source-map"
+  },
   "devDependencies": {
-    "serve": "^11.0.0"
+    "serve": "^11.0.0",
+    "uglify-es": "^3.3.9"
   }
 }
