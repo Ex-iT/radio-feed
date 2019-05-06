@@ -14,11 +14,33 @@
     "url": "git@github.com:Ex-iT/radio-feed.git"
   },
   "scripts": {
-    "start": "serve --no-clipboard",
-    "build": "uglifyjs src/index.js --output src/index.min.js --source-map"
+    "start": "run-s build dev",
+    "dev": "run-p watch serve",
+    "serve": "serve -d --no-clipboard",
+    "watch": "run-p watch:*",
+    "watch:js": "nodemon -e js --ignore \"dist/\" -x \"npm run build:js && npm run sourcemap\"",
+    "watch:css": "nodemon -e css --ignore \"dist/\" -x \"npm run build:css\"",
+    "watch:html": "nodemon -e html --ignore \"dist/\" -x \"npm run build:html\"",
+    "build": "run-s build:*",
+    "build:clean": "rimraf \"dist/\"",
+    "build:assets": "cpx \"src/**/*.{png,ico,json,svg}\" \"dist/\"",
+    "build:css": "node-minify --compressor cssnano --input \"src/style.css\" --output \"dist/style.min.css\"",
+    "build:html": "node-minify --compressor html-minifier --input \"src/index.html\" --output \"dist/index.html\"",
+    "build:js": "node-minify --compressor uglify-es --input \"src/index.js\" --output \"dist/index.min.js\"",
+    "sourcemap": "run-s sourcemap:*",
+    "sourcemap:js": "node-minify --compressor uglify-es --input \"src/index.js\" --output \"dist/index.min.js\" --option '{ \"sourceMap\": { \"includeSources\": \"true\", \"url\": \"index.min.js.map\" } }'",
+    "sourcemap:copy": "cpx \"*.map\" \"dist/\"",
+    "sourcemap:clean": "rimraf \"*.map\""
   },
   "devDependencies": {
-    "serve": "^11.0.0",
-    "uglify-es": "^3.3.9"
+    "@node-minify/cli": "^4.1.0",
+    "@node-minify/cssnano": "^4.1.0",
+    "@node-minify/html-minifier": "^4.0.5",
+    "@node-minify/uglify-es": "^4.0.5",
+    "cpx": "^1.5.0",
+    "nodemon": "^1.19.0",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^2.6.3",
+    "serve": "^11.0.0"
   }
 }

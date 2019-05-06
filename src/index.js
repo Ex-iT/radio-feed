@@ -13,8 +13,6 @@
     const titleEl = document.getElementById('title');
     const btnPlay = document.getElementById('btnPlay');
 
-    console.log(this);
-
     setPlaylist();
     handleAudioEvents();
 
